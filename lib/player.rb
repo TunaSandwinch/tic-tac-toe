@@ -28,7 +28,7 @@ class Player
         item.push(list[list_index])
         list_index += 3
       end
-      list_index - 5
+      list_index -= 8
     end
     result
   end
