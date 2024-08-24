@@ -9,11 +9,26 @@ class Player
   end
 
   def horizontal_result(list)
-    result = []
-    count = 0
-    3.times do
-      result.push(list[count..count + 2])
-      count += 2
+    result = [[], [], []]
+    list_index = 0
+    result.each do |item|
+      3.times do
+        item.push(list[list_index])
+        list_index += 1
+      end
+    end
+    result
+  end
+
+  def vertical_result(list)
+    result = [[], [], []]
+    list_index = 0
+    result.each do |item|
+      3.times do
+        item.push(list[list_index])
+        list_index += 3
+      end
+      list_index - 5
     end
     result
   end
