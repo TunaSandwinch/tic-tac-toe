@@ -1,58 +1,8 @@
 # frozen_string_literal: true
 
-# this where the magic begins
-class Player
-  attr_accessor :piece
-
-  def initialize(type)
-    @piece = type
-  end
-
-  def horizontal_result(list)
-    result = [[], [], []]
-    list_index = 0
-    result.each do |item|
-      3.times do
-        item.push(list[list_index])
-        list_index += 1
-      end
-    end
-    result
-  end
-
-  def vertical_result(list)
-    result = [[], [], []]
-    list_index = 0
-    result.each do |item|
-      3.times do
-        item.push(list[list_index])
-        list_index += 3
-      end
-      list_index -= 8
-    end
-    result
-  end
-
-  def left_diagonal_result(list)
-    result = []
-    list_index = 0
-    3.times do
-      result.push(list[list_index])
-      list_index += 4
-    end
-    result
-  end
-
-  def right_diagonal_result(list)
-    result = []
-    list_index = 2
-    3.times do
-      result.push(list[list_index])
-      list_index += 2
-    end
-    result
-  end
-
+require_relative 'play_game'
+# all the necessarry things to monitor the game state of each player goes here
+class Player < PlayGame
   def vertical_win?(list)
     winning_combs = vertical_result(list)
     winning_combs.each do |winning_comb|
