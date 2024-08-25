@@ -8,11 +8,20 @@ class PlayGame
     @piece = type
   end
 
-  def player_move(type, board, position)
-    board[position] = type
+  def valid_move?(board, position)
+    if position.instance_of?(Integer) && position.between?(1, 9)
+      position -= 1
+      board[position].instance_of?(Integer)
+    else
+      false
+    end
   end
 
-  def display_board(board)
+  def player_move(type, board, position)
+    board[position.to_i] = type
+  end
+
+  def self.display_board(board)
     puts " #{board[0]} | #{board[1]} | #{board[2]} "
     puts '-----------'
     puts " #{board[3]} | #{board[4]} | #{board[5]} "
