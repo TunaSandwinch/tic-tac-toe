@@ -1,11 +1,23 @@
 # frozen_string_literal: true
 
-# all the things that needs to play the game goes here
+# all the things to navigate the game and also to get board information goes here
 class PlayGame
   attr_accessor :piece
 
   def initialize(type)
     @piece = type
+  end
+
+  def player_move(type, board, position)
+    board[position] = type
+  end
+
+  def display_board(board)
+    puts " #{board[0]} | #{board[1]} | #{board[2]} "
+    puts '-----------'
+    puts " #{board[3]} | #{board[4]} | #{board[5]} "
+    puts '-----------'
+    puts " #{board[6]} | #{board[7]} | #{board[8]} "
   end
 
   private
