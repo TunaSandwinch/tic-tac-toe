@@ -1,8 +1,25 @@
 # frozen_string_literal: true
 
 require_relative 'lib/player'
-board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-player1 = Player.new('O')
+game = Player.new
 
-p player1.horizontal_result(board)
+game.board.each_index do |index|
+  game.display_board
+  game.make_move
+  if index == 8
+    if game.player_win?
+      game.display_board
+      p "Player #{game.current_player} Win!"
+    else
+      p 'Its a TIE!'
+    end
+  elsif index > 3
+    if game.player_win?
+      game.display_board
+      p "Player #{game.current_player} Win!"
+      break
+    end
+  end
+  game.set_current_player
+end

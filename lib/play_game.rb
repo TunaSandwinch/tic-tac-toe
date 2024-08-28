@@ -22,7 +22,7 @@ class PlayGame
   end
 
   def player_move
-    puts 'take your move:'
+    puts "Player #{current_player}'s move"
     gets.chomp
   end
 
